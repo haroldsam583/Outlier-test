@@ -101,4 +101,20 @@ function logout() {
   localStorage.clear();
   location.href = "login.html";
 }
+</script><script>
+// Redirect if not logged in
+if(localStorage.getItem("loggedIn") !== "yes"){
+  location.href = "login.html";
+}
+
+// Optional: show username on dashboard
+document.addEventListener("DOMContentLoaded", function(){
+  const currentUser = localStorage.getItem("currentUser");
+  if(currentUser){
+    const h2 = document.createElement("h2");
+    h2.textContent = "Welcome, " + currentUser;
+    h2.style.textAlign = "center";
+    document.body.prepend(h2);
+  }
+});
 </script>
