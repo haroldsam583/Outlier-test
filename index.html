@@ -1,71 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unlocker Code – Mobile Unlock Services</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Index</title>
+<style>
+  /* General body styling */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  header {
+    background: linear-gradient(90deg, #4b6cb7, #182848);
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+    animation: fadeInDown 1s ease forwards;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #4b6cb7;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
+    font-weight: bold;
+  }
+
+  nav a:hover {
+    color: #fff;
+    background: #4b6cb7;
+    border-radius: 8px;
+  }
+
+  main {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards;
+    animation-delay: 0.3s;
+  }
+
+  section:nth-child(2) { animation-delay: 0.5s; }
+  section:nth-child(3) { animation-delay: 0.7s; }
+
+  h2 {
+    color: #182848;
+    margin-top: 0;
+  }
+
+  /* Animations */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: #182848;
+    color: #fff;
+    margin-top: 2rem;
+  }
+</style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#how-to-add-fund">How To Add Fund</a></li>
-                <li><a href="#login">Login/Register</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+  <h1>Welcome to My Index</h1>
+</header>
 
-    <!-- Hero / Banner -->
-    <section id="hero">
-        <h1>Welcome to Unlocker Code</h1>
-        <p>Best digital unlocking services for FRP, iCloud, MDM & more.</p>
-    </section>
+<nav>
+  <a href="#section1">Section 1</a>
+  <a href="#section2">Section 2</a>
+  <a href="#section3">Section 3</a>
+</nav>
 
-    <!-- Services -->
-    <section id="services">
-        <h2>Our Services</h2>
-        <ul>
-            <li>IMEI / SN Services</li>
-            <li>Server / Credit Services</li>
-            <li>Tool Rent</li>
-            <li>Mobile Unlock Tools</li>
-        </ul>
-    </section>
+<main>
+  <section id="section1">
+    <h2>Section 1</h2>
+    <p>This is the first section. It has smooth fade-in animation and a subtle shadow.</p>
+  </section>
 
-    <!-- How To Add Fund -->
-    <section id="how-to-add-fund">
-        <h2>How to Add Funds</h2>
-        <p>Instructions on topping up your account (e.g., Binance USDT/USDC, supported payment methods).</p>
-    </section>
+  <section id="section2">
+    <h2>Section 2</h2>
+    <p>This is the second section. Try hovering over the nav links—they animate nicely!</p>
+  </section>
 
-    <!-- Login / Register -->
-    <section id="login">
-        <h2>Login / Register</h2>
-        <p><a href="/login">Login</a> | <a href="/register">Create an Account</a></p>
-    </section>
+  <section id="section3">
+    <h2>Section 3</h2>
+    <p>This is the third section. Everything here is styled with colors, animations, and rounded cards.</p>
+  </section>
+</main>
 
-    <!-- Contact -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>WhatsApp / Telegram: <a href="https://wa.me/+8801913934044">+8801913934044</a></p>
-        <p>Email: <a href="mailto:fixfirmwarex@gmail.com">fixfirmwarex@gmail.com</a></p>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Unlocker Code. All rights reserved.</p>
-        <ul>
-            <li><a href="/page/term-and-condition">Terms & Conditions</a></li>
-            <li><a href="/page/privacy-policy">Privacy Policy</a></li>
-            <li><a href="/page/cancellation-policy">Cancellation Policy</a></li>
-        </ul>
-    </footer>
+<footer>
+  &copy; 2026 My Animated Index
+</footer>
 
 </body>
 </html>
