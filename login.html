@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  background:#0f172a;
+  font-family:Arial;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+.box {
+  background:#1e293b;
+  padding:20px;
+  border-radius:10px;
+  width:90%;
+  max-width:350px;
+}
+input, button {
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:6px;
+  border:none;
+}
+button {
+  background:#22c55e;
+  font-size:16px;
+}
+a {
+  color:#22c55e;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+<div class="box">
+  <h2>Login</h2>
+
+  <input id="user" placeholder="Username">
+  <input id="pass" type="password" placeholder="Password">
+
+  <button onclick="login()">Login</button>
+
+  <p>No account?
+    <a href="signup.html">Sign up</a>
+  </p>
+</div>
+
+<script>
+function login() {
+  let u = document.getElementById("user").value;
+  let p = document.getElementById("pass").value;
+
+  let su = localStorage.getItem("user");
+  let sp = localStorage.getItem("pass");
+
+  if(u === su && p === sp) {
+    localStorage.setItem("loggedIn", "yes");
+    location.href = "index.html";
+  } else {
+    alert("Wrong login details");
+  }
+}
+</script>
+</body>
+</html>
