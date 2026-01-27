@@ -1,39 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sign Up</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+/* Base body */
 body {
-  background:#0f172a;
-  font-family:Arial;
+  margin:0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1a2435);
   color:white;
   display:flex;
   justify-content:center;
   align-items:center;
-  height:100vh;
+  min-height:100vh;
+  overflow-x:hidden;
+  transition: background 0.5s ease;
 }
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  0% { opacity:0; transform: translateY(50px);}
+  100% { opacity:1; transform: translateY(0);}
+}
+
+/* Card container */
 .box {
-  background:#1e293b;
-  padding:20px;
-  border-radius:10px;
+  background: linear-gradient(145deg, #1e293b, #2a3a55);
+  padding:30px 25px;
+  border-radius:15px;
   width:90%;
-  max-width:350px;
+  max-width:400px;
+  text-align:center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  animation: fadeInUp 0.7s ease forwards;
 }
-input, button {
+
+/* Heading */
+h2 {
+  margin-bottom:20px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+/* Inputs */
+input {
   width:100%;
-  padding:12px;
-  margin-top:10px;
-  border-radius:6px;
+  padding:14px;
+  margin:12px 0;
+  border-radius:8px;
   border:none;
-}
-button {
-  background:#22c55e;
   font-size:16px;
+  background: #1a2536;
+  color:white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+input:focus {
+  outline:none;
+  transform: scale(1.03);
+  box-shadow: 0 0 10px #22c55e;
+}
+
+/* Buttons with 3D gradient effect */
+button {
+  width:100%;
+  padding:14px;
+  margin-top:12px;
+  font-size:16px;
+  font-weight:bold;
+  border:none;
+  border-radius:10px;
+  background: linear-gradient(145deg, #22c55e, #16a34a);
+  box-shadow: 0 5px 0 #15803d, 0 10px 15px rgba(0,0,0,0.3);
+  cursor:pointer;
+  transition: all 0.2s ease;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #15803d, 0 12px 20px rgba(0,0,0,0.4);
+}
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 #15803d, 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Links */
 a {
   color:#22c55e;
   text-decoration:none;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color:#a3f7a3;
+}
+
+/* Responsive text */
+p {
+  margin-top:15px;
+  font-size:14px;
+}
+@media screen and (max-width: 400px) {
+  .box {
+    padding:25px 15px;
+  }
+  input, button {
+    font-size:14px;
+  }
 }
 </style>
 </head>
@@ -47,26 +119,24 @@ a {
 
   <button onclick="signup()">Sign Up</button>
 
-  <p>Already have an account?
-    <a href="login.html">Login</a>
-  </p>
+  <p>Already have an account? <a href="login.html">Login</a></p>
 </div>
 
 <script>
 function signup() {
-  let u = document.getElementById("user").value;
-  let p = document.getElementById("pass").value;
+  const u = document.getElementById("user").value.trim();
+  const p = document.getElementById("pass").value.trim();
 
-  if(!u || !p) {
-    alert("Fill all fields");
+  if(!u || !p){
+    alert("Please fill all fields");
     return;
   }
 
-  localStorage.setItem("user", u);
+  localStorage.setItem("user", u.toLowerCase());
   localStorage.setItem("pass", p);
 
-  alert("Signup successful");
-  location.href = "login.html";
+  alert("Signup successful! Please login.");
+  window.location.href = "login.html";
 }
 </script>
 </body>
