@@ -1,120 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Outlier Tasks</title>
-<style>
-body {
-  margin:0;
-  font-family:Arial;
-  background:#0f172a;
-  color:white;
-}
-header {
-  padding:15px;
-  text-align:center;
-  background:#020617;
-}
-.card {
-  background:#1e293b;
-  margin:15px;
-  padding:15px;
-  border-radius:10px;
-}
-button {
-  width:100%;
-  padding:12px;
-  background:#22c55e;
-  border:none;
-  border-radius:6px;
-  font-size:16px;
-}
-nav {
-  position:fixed;
-  bottom:0;
-  width:100%;
-  background:#020617;
-  display:flex;
-  justify-content:space-around;
-  padding:10px 0;
-}
-nav a {
-  color:white;
-  text-decoration:none;
-  font-size:14px;
-}
-.hidden {
-  display:none;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlocker Code – Mobile Unlock Services</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<header>
-  <h2>Outlier Tasks</h2>
-</header>
+    <!-- Header / Navbar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#how-to-add-fund">How To Add Fund</a></li>
+                <li><a href="#login">Login/Register</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<div id="home" class="card">
-  <h3>Available Task</h3>
-  <p>Watch a video – Earn points</p>
-  <button onclick="alert('Task started')">Start Task</button>
-</div>
+    <!-- Hero / Banner -->
+    <section id="hero">
+        <h1>Welcome to Unlocker Code</h1>
+        <p>Best digital unlocking services for FRP, iCloud, MDM & more.</p>
+    </section>
 
-<div id="wallet" class="card hidden">
-  <h3>Wallet</h3>
-  <p>Balance: <b>0.00</b></p>
-</div>
+    <!-- Services -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>IMEI / SN Services</li>
+            <li>Server / Credit Services</li>
+            <li>Tool Rent</li>
+            <li>Mobile Unlock Tools</li>
+        </ul>
+    </section>
 
-<div id="profile" class="card hidden">
-  <h3>Profile</h3>
-  <p>User: Demo Account</p>
-</div>
+    <!-- How To Add Fund -->
+    <section id="how-to-add-fund">
+        <h2>How to Add Funds</h2>
+        <p>Instructions on topping up your account (e.g., Binance USDT/USDC, supported payment methods).</p>
+    </section>
 
-<nav>
-  <a onclick="show('home')">Home</a>
-  <a onclick="show('wallet')">Wallet</a>
-  <a onclick="show('profile')">Profile</a>
-</nav>
+    <!-- Login / Register -->
+    <section id="login">
+        <h2>Login / Register</h2>
+        <p><a href="/login">Login</a> | <a href="/register">Create an Account</a></p>
+    </section>
 
-<script>
-function show(page) {
-  document.getElementById("home").classList.add("hidden");
-  document.getElementById("wallet").classList.add("hidden");
-  document.getElementById("profile").classList.add("hidden");
-  document.getElementById(page).classList.remove("hidden");
-}
-</script>
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>WhatsApp / Telegram: <a href="https://wa.me/+8801913934044">+8801913934044</a></p>
+        <p>Email: <a href="mailto:fixfirmwarex@gmail.com">fixfirmwarex@gmail.com</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Unlocker Code. All rights reserved.</p>
+        <ul>
+            <li><a href="/page/term-and-condition">Terms & Conditions</a></li>
+            <li><a href="/page/privacy-policy">Privacy Policy</a></li>
+            <li><a href="/page/cancellation-policy">Cancellation Policy</a></li>
+        </ul>
+    </footer>
 
 </body>
 </html>
-<script>
-if(localStorage.getItem("loggedIn") !== "yes") {
-  location.href = "login.html";
-}
-</script>
-<button onclick="logout()">Logout</button>
-
-<script>
-function logout() {
-  localStorage.clear();
-  location.href = "login.html";
-}
-</script><script>
-// Redirect if not logged in
-if(localStorage.getItem("loggedIn") !== "yes"){
-  location.href = "login.html";
-}
-
-// Optional: show username on dashboard
-document.addEventListener("DOMContentLoaded", function(){
-  const currentUser = localStorage.getItem("currentUser");
-  if(currentUser){
-    const h2 = document.createElement("h2");
-    h2.textContent = "Welcome, " + currentUser;
-    h2.style.textAlign = "center";
-    document.body.prepend(h2);
-  }
-});
-</script>
