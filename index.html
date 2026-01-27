@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outlier Tasks</title>
+<style>
+body {
+  margin:0;
+  font-family:Arial;
+  background:#0f172a;
+  color:white;
+}
+header {
+  padding:15px;
+  text-align:center;
+  background:#020617;
+}
+.card {
+  background:#1e293b;
+  margin:15px;
+  padding:15px;
+  border-radius:10px;
+}
+button {
+  width:100%;
+  padding:12px;
+  background:#22c55e;
+  border:none;
+  border-radius:6px;
+  font-size:16px;
+}
+nav {
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:#020617;
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
+}
+nav a {
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+}
+.hidden {
+  display:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>Outlier Tasks</h2>
+</header>
+
+<div id="home" class="card">
+  <h3>Available Task</h3>
+  <p>Watch a video – Earn points</p>
+  <button onclick="alert('Task started')">Start Task</button>
+</div>
+
+<div id="wallet" class="card hidden">
+  <h3>Wallet</h3>
+  <p>Balance: <b>0.00</b></p>
+</div>
+
+<div id="profile" class="card hidden">
+  <h3>Profile</h3>
+  <p>User: Demo Account</p>
+</div>
+
+<nav>
+  <a onclick="show('home')">Home</a>
+  <a onclick="show('wallet')">Wallet</a>
+  <a onclick="show('profile')">Profile</a>
+</nav>
+
+<script>
+function show(page) {
+  document.getElementById("home").classList.add("hidden");
+  document.getElementById("wallet").classList.add("hidden");
+  document.getElementById("profile").classList.add("hidden");
+  document.getElementById(page).classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
