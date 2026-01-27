@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stepper Site - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body{
+      background: #1bb1ec;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .site-header{
+      font-size: 48px;
+      font-weight: 500;
+      color: #28a745;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .welcome{
+      font-size: 24px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .features{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .feature-card{
+      background: rgba(255,255,255,0.2);
+      padding: 20px;
+      border-radius: 12px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .feature-card:hover{
+      background: rgba(255,255,255,0.35);
+    }
+
+    .logout-btn{
+      margin-top: 40px;
+      padding: 12px 20px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .logout-btn:hover{
+      background: #1fa233;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="site-header">Stepper Site</div>
+  <div class="welcome" id="welcomeMsg">Welcome!</div>
+
+  <div class="features">
+    <div class="feature-card">Feature 1: Dashboard</div>
+    <div class="feature-card">Feature 2: Profile Management</div>
+    <div class="feature-card">Feature 3: Settings</div>
+    <div class="feature-card">Feature 4: Analytics</div>
+    <div class="feature-card">Feature 5: Support</div>
+  </div>
+
+  <button class="logout-btn" id="logoutBtn">Logout</button>
+
+<script>
+  // Show username from localStorage
+  const storedData = JSON.parse(localStorage.getItem("userData"));
+  const welcomeMsg = document.getElementById("welcomeMsg");
+
+  if(storedData && storedData.username){
+    welcomeMsg.textContent = "Welcome, " + storedData.username + "!";
+  } else {
+    // If no user is logged in, redirect back to login/signup page
+    window.location.href = "index.html";
+  }
+
+  // Logout functionality
+  document.getElementById("logoutBtn").addEventListener("click", function(){
+    localStorage.removeItem("userData");
+    window.location.href = "index.html";
+  });
+</script>
+
+</body>
+</html>
