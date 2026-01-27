@@ -5,40 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sign Up</title>
 <style>
-body {
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:#0f172a;
-  color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-}
-.box {
-  background:#1e293b;
-  padding:20px;
-  border-radius:10px;
-  width:90%;
-  max-width:350px;
-  box-sizing:border-box;
-}
-input, button {
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border-radius:6px;
-  border:none;
-  font-size:16px;
-}
-button {
-  background:#22c55e;
-  cursor:pointer;
-}
-a {
-  color:#22c55e;
-  text-decoration:none;
-}
+  body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#0f172a;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+  }
+  .box {
+    background:#1e293b;
+    padding:20px;
+    border-radius:10px;
+    width:90%;
+    max-width:350px;
+    box-sizing:border-box;
+  }
+  input, button {
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border-radius:6px;
+    border:none;
+    font-size:16px;
+  }
+  button {
+    background:#22c55e;
+    cursor:pointer;
+  }
+  a {
+    color:#22c55e;
+    text-decoration:none;
+  }
 </style>
 </head>
 <body>
@@ -46,13 +46,13 @@ a {
   <h2>Create Account</h2>
   <input id="user" placeholder="Username">
   <input id="pass" type="password" placeholder="Password">
-  <button onclick="signup()">Sign Up</button>
+  <button id="signupBtn">Sign Up</button>
   <p>Already have an account? <a href="login.html">Login</a></p>
 </div>
 
 <script>
-function signup() {
-  const u = document.getElementById("user").value.trim();
+document.getElementById("signupBtn").addEventListener("click", function() {
+  const u = document.getElementById("user").value.trim().toLowerCase();
   const p = document.getElementById("pass").value.trim();
 
   if(!u || !p){
@@ -60,9 +60,15 @@ function signup() {
     return;
   }
 
-  // Save as lowercase username to prevent case issues
-  localStorage.setItem("user", u.toLowerCase());
+  localStorage.setItem("user", u);
   localStorage.setItem("pass", p);
+
+  alert("Signup successful! Please login.");
+  window.location.href = "login.html";
+});
+</script>
+</body>
+</html>  localStorage.setItem("pass", p);
 
   alert("Signup successful! Please login.");
   location.href = "login.html";
