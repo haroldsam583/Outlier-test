@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sign Up</title>
+<title>Login</title>
 <style>
 /* Base body */
 body {
@@ -112,31 +112,30 @@ p {
 
 <body>
 <div class="box">
-  <h2>Create Account</h2>
+  <h2>Login</h2>
 
   <input id="user" placeholder="Username">
   <input id="pass" type="password" placeholder="Password">
 
-  <button onclick="signup()">Sign Up</button>
+  <button onclick="login()">Login</button>
 
-  <p>Already have an account? <a href="login.html">Login</a></p>
+  <p>No account? <a href="signup.html">Sign up</a></p>
 </div>
 
 <script>
-function signup() {
-  const u = document.getElementById("user").value.trim();
-  const p = document.getElementById("pass").value.trim();
+function login() {
+  let u = document.getElementById("user").value.trim();
+  let p = document.getElementById("pass").value.trim();
 
-  if(!u || !p){
-    alert("Please fill all fields");
-    return;
+  let su = localStorage.getItem("user");
+  let sp = localStorage.getItem("pass");
+
+  if(u === su && p === sp) {
+    localStorage.setItem("loggedIn", "yes");
+    location.href = "index.html";
+  } else {
+    alert("Wrong login details");
   }
-
-  localStorage.setItem("user", u.toLowerCase());
-  localStorage.setItem("pass", p);
-
-  alert("Signup successful! Please login.");
-  window.location.href = "login.html";
 }
 </script>
 </body>
