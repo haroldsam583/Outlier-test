@@ -5,40 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login</title>
 <style>
-body {
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:#0f172a;
-  color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-}
-.box {
-  background:#1e293b;
-  padding:20px;
-  border-radius:10px;
-  width:90%;
-  max-width:350px;
-  box-sizing:border-box;
-}
-input, button {
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border-radius:6px;
-  border:none;
-  font-size:16px;
-}
-button {
-  background:#22c55e;
-  cursor:pointer;
-}
-a {
-  color:#22c55e;
-  text-decoration:none;
-}
+  body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#0f172a;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+  }
+  .box {
+    background:#1e293b;
+    padding:20px;
+    border-radius:10px;
+    width:90%;
+    max-width:350px;
+    box-sizing:border-box;
+  }
+  input, button {
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border-radius:6px;
+    border:none;
+    font-size:16px;
+  }
+  button {
+    background:#22c55e;
+    cursor:pointer;
+  }
+  a {
+    color:#22c55e;
+    text-decoration:none;
+  }
 </style>
 </head>
 <body>
@@ -46,13 +46,13 @@ a {
   <h2>Login</h2>
   <input id="user" placeholder="Username">
   <input id="pass" type="password" placeholder="Password">
-  <button onclick="login()">Login</button>
+  <button id="loginBtn">Login</button>
   <p>No account? <a href="signup.html">Sign Up</a></p>
 </div>
 
 <script>
-function login(){
-  const u = document.getElementById("user").value.trim().toLowerCase(); // lowercase username
+document.getElementById("loginBtn").addEventListener("click", function() {
+  const u = document.getElementById("user").value.trim().toLowerCase();
   const p = document.getElementById("pass").value.trim();
 
   const savedUser = localStorage.getItem("user");
@@ -60,9 +60,21 @@ function login(){
 
   if(!savedUser || !savedPass){
     alert("No account found. Please sign up first.");
-    location.href = "signup.html";
+    window.location.href = "signup.html";
     return;
   }
+
+  if(u === savedUser && p === savedPass){
+    localStorage.setItem("loggedIn", "yes");
+    localStorage.setItem("currentUser", u);
+    window.location.href = "index.html";
+  } else {
+    alert("Wrong username or password.");
+  }
+});
+</script>
+</body>
+</html>  }
 
   if(u === savedUser && p === savedPass){
     localStorage.setItem("loggedIn", "yes");
