@@ -89,3 +89,16 @@ function show(page) {
 
 </body>
 </html>
+<script>
+if(localStorage.getItem("loggedIn") !== "yes") {
+  location.href = "login.html";
+}
+</script>
+<button onclick="logout()">Logout</button>
+
+<script>
+function logout() {
+  localStorage.clear();
+  location.href = "login.html";
+}
+</script>
