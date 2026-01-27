@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Login Form</title>
+  <title>Login Form</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
     *{
@@ -18,11 +18,21 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Site Name */
+    .name-header{
+      font-size: 48px; /* large font */
+      font-weight: 500;
+      color: #28a745; /* green */
+      margin-bottom: 20px;
+      text-align: center;
     }
 
     .form-container{
-      background: #ffffff;
+      background: #fff;
       padding: 30px 25px;
       border-radius: 12px;
       width: 100%;
@@ -96,6 +106,9 @@
 </head>
 <body>
 
+  <!-- Site Name -->
+  <div class="name-header">Stepper Site</div>
+
   <div class="form-container">
     <h2>Login</h2>
     <div class="alert" id="alert"></div>
@@ -127,13 +140,13 @@
     if(storedData){
       if(email === storedData.email && password === storedData.password){
         showAlert("Login successful! Welcome " + storedData.username, true);
-        // You can redirect the user or load another page here
-        // e.g., window.location.href = "dashboard.html";
+        // Redirect or load another page here
+        // window.location.href = "dashboard.html";
       } else {
         showAlert("Invalid email or password!");
       }
     } else {
-      showAlert("No user found! Please register first.");
+      showAlert("No user found! Please sign up first.");
     }
   });
 
