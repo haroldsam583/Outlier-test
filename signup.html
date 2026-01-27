@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sign Up</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
+  margin:0;
+  font-family: Arial, sans-serif;
   background:#0f172a;
-  font-family:Arial;
   color:white;
   display:flex;
   justify-content:center;
@@ -19,6 +21,7 @@ body {
   border-radius:10px;
   width:90%;
   max-width:350px;
+  box-sizing:border-box;
 }
 input, button {
   width:100%;
@@ -26,10 +29,11 @@ input, button {
   margin-top:10px;
   border-radius:6px;
   border:none;
+  font-size:16px;
 }
 button {
   background:#22c55e;
-  font-size:16px;
+  cursor:pointer;
 }
 a {
   color:#22c55e;
@@ -37,32 +41,35 @@ a {
 }
 </style>
 </head>
-
 <body>
 <div class="box">
   <h2>Create Account</h2>
-
   <input id="user" placeholder="Username">
   <input id="pass" type="password" placeholder="Password">
-
   <button onclick="signup()">Sign Up</button>
-
-  <p>Already have an account?
-    <a href="login.html">Login</a>
-  </p>
+  <p>Already have an account? <a href="login.html">Login</a></p>
 </div>
 
 <script>
 function signup() {
-  let u = document.getElementById("user").value;
-  let p = document.getElementById("pass").value;
+  const u = document.getElementById("user").value.trim();
+  const p = document.getElementById("pass").value.trim();
 
-  if(!u || !p) {
-    alert("Fill all fields");
+  if(!u || !p){
+    alert("Please fill all fields");
     return;
   }
 
-  localStorage.setItem("user", u);
+  // Save as lowercase username to prevent case issues
+  localStorage.setItem("user", u.toLowerCase());
+  localStorage.setItem("pass", p);
+
+  alert("Signup successful! Please login.");
+  location.href = "login.html";
+}
+</script>
+</body>
+</html>  localStorage.setItem("user", u);
   localStorage.setItem("pass", p);
 
   alert("Signup successful");
